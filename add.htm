@@ -7,41 +7,40 @@ REGISTER NEW USER
 </head>
 <br>
 <body style="background-color:black;">
-<br>
-
-<form action="action_add.php" method="post" enctype="multipart/form-data">
-<fieldset style="background-color:rgb(255,102,51);">
-<legend style="font-size:40px;background-color:black; color:rgb(178,204,51);"><u>SIGN UP</u></legend>
-Name:
-<br>
-<input style="background-color:rgb(178,204,51);" type="text" name="Name" pattern="[A-Za-z .]*" required>
-<br>
-<br>
-Phone:
-<br>
-<input style="background-color:rgb(178,204,51);" type="number" name="Phone" min="100000000" max="999999999">
-<br>
-<br>
-Email Id:
-<br>
-<input style="background-color:rgb(178,204,51);" type="Email" name="mail">
-<br>
-<br>
-Username
-<br>
-<input name="UserName" style="background-color:rgb(178,204,51);" pattern="[A-Za-z0-9]*" type="text">
-<br>
-<br>
-Password:
-<br>
-<input style="background-color:rgb(178,204,51);" type="text" name="Password" >
-<br>
-<br>
-<input type="file" name="UploadPhoto" id="UploadPhoto">
-<br>
-<br>
-<input type="submit" style="background-color:black; color:rgb(178,204,51);" value="Register">
-</fieldset>
-</form>
+  <br>
+  <form action="action_add.php" method="post" enctype="multipart/form-data">
+  <fieldset style="background-color:rgb(255,102,51);">
+  <legend style="font-size:40px;background-color:black; color:rgb(178,204,51);"><u>SIGN UP</u></legend>
+    Name:
+    <br>
+    <input style="background-color:rgb(178,204,51);" type="text" name="Name" pattern="[A-Za-z .]*" required>
+    <br>
+    <br>
+    Phone:
+    <br>
+    <input style="background-color:rgb(178,204,51);" type="number" name="Phone" min="100000000" max="999999999">
+    <br>
+    <br>
+    Email Id:
+    <br>
+    <input style="background-color:rgb(178,204,51);" type="email" name="Email" >
+    <br>
+    <br>
+    Username
+    <br>
+    <input name="UserName" style="background-color:rgb(178,204,51);" pattern="[A-Za-z0-9]*" type="text" required>
+    <br>
+    <br>
+    Password:
+    <br>
+    <input style="background-color:rgb(178,204,51);" type="text" name="Password" required>
+    <br>
+    <br>
+    <input type="file" name="UploadPhoto" id="UploadPhoto" required>
+    <br>
+    <br>
+    <input type="submit" style="background-color:black; color:rgb(178,204,51);" value="Register">
+  </fieldset>
+  </form>
 </body>
 </html>
