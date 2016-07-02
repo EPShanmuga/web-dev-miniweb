@@ -6,39 +6,63 @@ LOGIN PAGE
 </title>
 </head>
 <style>
-h
-{
-background-color:black;
-color:rgb(0,153,255);
-font-family-algerian;
-font-size:50px;
-}
-p
-{
-font-size:25px;
-font-family:sylfaen;
-}
+  h
+  {
+    background-color:black;
+    color:rgb(0,153,255);
+    font-family-algerian;
+    font-size:50px;
+  }
+  p
+  {
+    font-size:25px;
+    font-family:sylfaen;
+  }
 </style>
+<script>
+  function showHint(str) 
+  {
+    //ensures function works only when something is typed and not before that
+    if (str.length == 0) 
+    { 
+        document.getElementById("txtHint").innerHTML = "";
+        return;
+    } 
+    else 
+    {
+      var xmlhttp = new XMLHttpRequest();
+      //again called whenever the input varies
+      xmlhttp.onreadystatechange = function() 
+      {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) 
+        //changing the hint dynamically form the response from respond.php
+          document.getElementById("txtHint").innerHTML = xmlhttp.responseText;
+      };
+      //sending input to respond.php
+      xmlhttp.open("GET", "respond.php?q=" + str, true);
+      xmlhttp.send();
+    }
+  }
+</script>
 <body style="background-color:rgb(204,51,155);">
-<br>
-<br>
-<form action="login_action.php" method="get" style="font-size:40px;font-family:sylfaen">
-<fieldset style="border:5px solid black;" >
-<legend style="font-size:50px;font-family:sylfaen;"><u><b> LOGIN </b></u></legend>
-<center>
-USERNAME
-<br>
-<input type="text" name="UserName" style="background-color:black;color:rgb(163,0,163);font-size:25px;">
-<br>
-<br>
-PASSWORD
-<br>
-<input type="text" name="Password" style="background-color:black;color:rgb(163,0,163);font-size:25px;">
-<br>
-<br>
-<input type="submit" style="background-color:black; color:rgb(163,0,163);font-size:40px;font-family:sylfaen;" value="Submit">
-</fieldset>
-</form>
-</center>
+  <br>
+  <form action="login_action.php" method="get" style="font-size:40px;font-family:sylfaen">
+  <fieldset style="border:5px solid black;" >
+    <legend style="font-size:50px;font-family:sylfaen;"><u><b> LOGIN </b></u></legend>
+    <center>
+    <p>SUGGESTIONS: <span id="txtHint"></span></p>
+    USERNAME
+    <br>
+    <input type="text" style="background-color:black;color:rgb(163,0,163);font-size:25px;" onchange="showHint(this.value)"  onchange="showHint(this.value)" onkeypress="showHint(this.value)" onpaste="showHint(this.value)" oninput="showHint(this.value)" name="UserName">
+    <br>
+    <br>
+    PASSWORD
+    <br>
+    <input type="text" name="Password" style="background-color:black;color:rgb(163,0,163);font-size:25px;">
+    <br>
+    <br>
+    <input type="submit" style="background-color:black; color:rgb(163,0,163);font-size:40px;font-family:sylfaen;" value="Submit">
+  </fieldset>
+  </form>
 </body>
-<html>
+</html>
